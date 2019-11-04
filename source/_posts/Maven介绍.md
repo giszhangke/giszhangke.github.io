@@ -75,3 +75,9 @@ mvn clean package -D maven.test.skip=true -e -X
 mvn -pl ainsurtech-agent -am clean package -P uat -U -D maven.test.skip=true 
 ```
 
+
+
+## 参考资料
+1. [Introduction to the Dependency Mechanism](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html)
+2. [Optional Dependencies and Dependency Exclusions](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html)
+
