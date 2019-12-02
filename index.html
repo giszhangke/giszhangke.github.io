@@ -679,7 +679,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-01 14:12:52" itemprop="dateModified" datetime="2019-12-01T14:12:52+08:00">2019-12-01</time>
+                <time title="Modified: 2019-12-02 14:22:07" itemprop="dateModified" datetime="2019-12-02T14:22:07+08:00">2019-12-02</time>
               </span>
             
           
@@ -715,7 +715,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Git操作"><a href="#Git操作" class="headerlink" title="Git操作"></a>Git操作</h1><h2 id="git-cherry-pick-commitID"><a href="#git-cherry-pick-commitID" class="headerlink" title="git cherry-pick [commitID]"></a>git cherry-pick [commitID]</h2><p>代码开发的时候，有时需要把某分支（比如develop分支）的某一次提交合并到另一分支（比如master分支），这就需要用到git cherry-pick命令。</p><p>首先，切换到develop分支，敲 git log 命令，查找需要合并的commit记录，比如commitID：7fcb3defff；</p>
+          <h1 id="Git操作"><a href="#Git操作" class="headerlink" title="Git操作"></a>Git操作</h1><h2 id="git-cherry-pick-commitID"><a href="#git-cherry-pick-commitID" class="headerlink" title="git cherry-pick [commitID]"></a>git cherry-pick [commitID]</h2><p>代码开发的时候，有时需要把某分支（比如develop分支）的某一次提交合并到另一分支（比如master分支），这就需要用到<figure class="highlight plain"><figcaption><span>cherry-pick```命令。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">首先，切换到develop分支，敲 git log 命令，查找需要合并的commit记录，比如commitID：7fcb3defff；</span><br><span class="line"></span><br><span class="line">然后，切换到master分支，使用``` git cherry-pick 7fcb3defff```  命令，就把该条commit记录合并到了master分支，这只是在本地合并到了master分支；</span><br><span class="line"></span><br><span class="line">最后，git push 提交到master远程，至此，就把develop分支的这条commit所涉及的更改合并到了master分支。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Q&amp;A</span><br><span class="line"></span><br><span class="line">## 问题描述： git push 报 HTTP Basic: Access denied 错误</span><br><span class="line"> 原因：本地git配置的用户名、密码与gitlabs上注册的用户名、密码不一致。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">解决方案： </span><br><span class="line"></span><br><span class="line">- 1. 如果账号密码有变动 用这个命令 ```git config –system –unset credential.helper``` 重新输入账号密码 应该就能解决了 </span><br><span class="line"></span><br><span class="line">- 2. 如果用了第一个命令 还不能解决问题那么 用这个命令： </span><br><span class="line">     ```git config –global http.emptyAuth true</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           
             <div class="post-button text-center">
