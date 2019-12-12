@@ -81,3 +81,11 @@ deploy:
   type: git
   repository: git@github.com:giszhangke/giszhangke.github.io.git
   branch: master
+
+# Menu
+menu:
+  home: / || home
+  about: /about/ || user
+  #tags: /tags/ || tags
+  #categories: /categories/ || th
+  archives: /archives/ || archive

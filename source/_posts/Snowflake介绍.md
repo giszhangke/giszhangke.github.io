@@ -1,5 +1,10 @@
 ---
 title: Snowflake介绍
+categories:
+- other
+
+tags:
+- IdGenerator
 ---
 
 

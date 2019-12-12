@@ -1,5 +1,10 @@
 ---
 title: Maven介绍
+categories:
+- tool
+- Maven
+tags:
+- Maven
 ---
 
 ##  依赖配置
