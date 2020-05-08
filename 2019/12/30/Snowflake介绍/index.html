@@ -55,19 +55,21 @@
   };
 </script>
 
-  <meta name="description" content="查看Postgresql的连接数查看postgresql的连接数： select * from pg_stat_activity; 查看最大连接数限制： show max_connections; 查看为超级用户保留的连接数： show superuser_reserved_connections ;">
-<meta name="keywords" content="java,spring">
+  <meta name="description" content="1. UUIDUUID(Universally Unique Identifier)的标准型式包含32个16进制数字，以连字号分为五段，形式为8-4-4-4-12的36个字符，示例：550e8400-e29b-41d4-a716-446655440000，到目前为止业界一共有5种方式生成UUID，详情见IETF发布的UUID规范 A Universally Unique IDentifier (U">
+<meta name="keywords" content="IdGenerator">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Klovis&#39;Blog">
-<meta property="og:url" content="https://klovis.top/2019/12/24/查看Postgresql的连接数/index.html">
+<meta property="og:title" content="Snowflake介绍">
+<meta property="og:url" content="https://klovis.top/2019/12/30/Snowflake介绍/index.html">
 <meta property="og:site_name" content="Klovis&#39;Blog">
-<meta property="og:description" content="查看Postgresql的连接数查看postgresql的连接数： select * from pg_stat_activity; 查看最大连接数限制： show max_connections; 查看为超级用户保留的连接数： show superuser_reserved_connections ;">
+<meta property="og:description" content="1. UUIDUUID(Universally Unique Identifier)的标准型式包含32个16进制数字，以连字号分为五段，形式为8-4-4-4-12的36个字符，示例：550e8400-e29b-41d4-a716-446655440000，到目前为止业界一共有5种方式生成UUID，详情见IETF发布的UUID规范 A Universally Unique IDentifier (U">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-24T08:07:07.688Z">
+<meta property="og:image" content="https://p0.meituan.net/travelcube/96034f8fa0f2cb14c21844a4fa12f50441574.png">
+<meta property="og:updated_time" content="2019-12-30T01:58:54.380Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Klovis&#39;Blog">
-<meta name="twitter:description" content="查看Postgresql的连接数查看postgresql的连接数： select * from pg_stat_activity; 查看最大连接数限制： show max_connections; 查看为超级用户保留的连接数： show superuser_reserved_connections ;">
-  <link rel="canonical" href="https://klovis.top/2019/12/24/查看Postgresql的连接数/">
+<meta name="twitter:title" content="Snowflake介绍">
+<meta name="twitter:description" content="1. UUIDUUID(Universally Unique Identifier)的标准型式包含32个16进制数字，以连字号分为五段，形式为8-4-4-4-12的36个字符，示例：550e8400-e29b-41d4-a716-446655440000，到目前为止业界一共有5种方式生成UUID，详情见IETF发布的UUID规范 A Universally Unique IDentifier (U">
+<meta name="twitter:image" content="https://p0.meituan.net/travelcube/96034f8fa0f2cb14c21844a4fa12f50441574.png">
+  <link rel="canonical" href="https://klovis.top/2019/12/30/Snowflake介绍/">
 
 
 <script id="page-configurations">
@@ -81,7 +83,7 @@
   };
 </script>
 
-  <title> | Klovis'Blog</title>
+  <title>Snowflake介绍 | Klovis'Blog</title>
   
 
 
@@ -229,7 +231,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://klovis.top/2019/12/24/查看Postgresql的连接数/">
+    <link itemprop="mainEntityOfPage" href="https://klovis.top/2019/12/30/Snowflake介绍/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Klovis Zhang">
@@ -241,7 +243,7 @@
       <meta itemprop="name" content="Klovis'Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h1 class="post-title" itemprop="name headline">Snowflake介绍
 
           
         </h1>
@@ -257,7 +259,20 @@
                 
               
 
-              <time title="Created: 2019-12-24 16:07:07" itemprop="dateCreated datePublished" datetime="2019-12-24T16:07:07+08:00">2019-12-24</time>
+              <time title="Created: 2019-12-30 09:58:54" itemprop="dateCreated datePublished" datetime="2019-12-30T09:58:54+08:00">2019-12-30</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/other/" itemprop="url" rel="index"><span itemprop="name">other</span></a></span>
+
+                
+                
+              
             </span>
           
 
@@ -272,12 +287,50 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="查看Postgresql的连接数"><a href="#查看Postgresql的连接数" class="headerlink" title="查看Postgresql的连接数"></a><a href="https://www.cnblogs.com/Smart_Joe/archive/2012/06/14/2549355.html" target="_blank" rel="noopener">查看Postgresql的连接数</a></h1><p>查看postgresql的连接数：</p>
-<p>select * from pg_stat_activity;</p>
-<p>查看最大连接数限制：</p>
-<p>show max_connections;</p>
-<p>查看为超级用户保留的连接数：</p>
-<p>show superuser_reserved_connections ; </p>
+        <h1 id="1-UUID"><a href="#1-UUID" class="headerlink" title="1. UUID"></a>1. UUID</h1><p>UUID(Universally Unique Identifier)的标准型式包含32个16进制数字，以连字号分为五段，形式为8-4-4-4-12的36个字符，示例：<code>550e8400-e29b-41d4-a716-446655440000</code>，到目前为止业界一共有5种方式生成UUID，详情见IETF发布的UUID规范 <a href="http://www.ietf.org/rfc/rfc4122.txt" target="_blank" rel="noopener">A Universally Unique IDentifier (UUID) URN Namespace</a>。</p><a id="more"></a>
+<p>优点：</p>
+<ul>
+<li>性能非常高：本地生成，没有网络消耗。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li><p>不易于存储：UUID太长，16字节128位，通常以36长度的字符串表示，很多场景不适用。</p>
+</li>
+<li><p>信息不安全：基于MAC地址生成UUID的算法可能会造成MAC地址泄露，这个漏洞曾被用于寻找梅丽莎病毒的制作者位置。</p>
+</li>
+<li><p>ID作为主键时在特定的环境会存在一些问题，比如做DB主键的场景下，UUID就非常不适用：</p>
+<p>① MySQL官方有明确的建议主键要尽量越短越好[4]，36个字符长度的UUID不符合要求。</p>
+<p>② 对MySQL索引不利：如果作为数据库主键，在InnoDB引擎下，UUID的无序性可能会引起数据位置频繁变动，严重影响性能。 </p>
+</li>
+</ul>
+<h1 id="2-Snowflake"><a href="#2-Snowflake" class="headerlink" title="2. Snowflake"></a>2. Snowflake</h1><p>Snowflake，Twitter开源的一种分布式ID生成算法。基于64位数实现，下图为Snowflake算法的ID构成图。</p>
+<p><img src="https://p0.meituan.net/travelcube/96034f8fa0f2cb14c21844a4fa12f50441574.png" alt="img"></p>
+<ul>
+<li>第1位置为0。</li>
+<li>第2-42位是相对时间戳，通过当前时间戳减去一个固定的历史时间戳生成。</li>
+<li>第43-52位是机器号workerID，每个Server的机器ID不同。</li>
+<li>第53-64位是自增ID。</li>
+</ul>
+<p>41-bit的时间可以表示（1L&lt;&lt;41）/（1000L<em>3600</em>24*365）=69年的时间，10-bit机器可以分别表示1024台机器。如果我们对IDC划分有需求，还可以将10-bit分5-bit给IDC，分5-bit给工作机器。这样就可以表示32个IDC，每个IDC下可以有32台机器，可以根据自身需求定义。12个自增序列号可以表示2^12个ID，理论上snowflake方案的QPS约为409.6w/s，这种分配方式可以保证在任何一个IDC的任何一台机器在任意毫秒内生成的ID都是不同的。</p>
+<p>这种方式的优缺点是：</p>
+<p><strong>优点：</strong></p>
+<ul>
+<li>毫秒数在高位，自增序列在低位，整个ID都是趋势递增的。</li>
+<li>不依赖数据库等第三方系统，以服务的方式部署，稳定性更高，生成ID的性能也是非常高的。</li>
+<li>可以根据自身业务特性分配bit位，非常灵活。</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>强依赖机器时钟，如果机器上时钟回拨，会导致发号重复或者服务会处于不可用状态。</li>
+</ul>
+<h1 id="3-Leaf"><a href="#3-Leaf" class="headerlink" title="3. Leaf"></a>3. Leaf</h1><p>Leaf: 美团分布式ID生成服务开源，具备高可靠、低延迟、全局唯一等特点。目前已经广泛应用于美团金融、美团外卖、美团酒旅等多个部门。</p>
+<h2 id="3-1-Leaf特性"><a href="#3-1-Leaf特性" class="headerlink" title="3.1 Leaf特性"></a>3.1 Leaf特性</h2><p>Leaf在设计之初就秉承着几点要求：</p>
+<ol>
+<li>全局唯一，绝对不会出现重复的ID，且ID整体趋势递增。</li>
+<li>高可用，服务完全基于分布式架构，即使MySQL宕机，也能容忍一段时间的数据库不可用。</li>
+<li>高并发低延时，在CentOS 4C8G的虚拟机上，远程调用QPS可达5W+，TP99在1ms内。</li>
+<li>接入简单，直接通过公司RPC服务或者HTTP调用即可接入。</li>
+</ol>
 
     </div>
 
@@ -288,11 +341,24 @@
       
 
       <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/IdGenerator/" rel="tag"># IdGenerator</a>
+            
+          </div>
+        
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/12/30/Git操作/" rel="next" title="那些你不知道的Git实用操作">
+                  <i class="fa fa-chevron-left"></i> 那些你不知道的Git实用操作
+                </a>
               
             </div>
 
@@ -300,8 +366,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/12/30/URI设计/" rel="prev" title="URI设计">
-                  URI设计 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/12/30/PostgreSQL  分区表/" rel="prev" title="PostgreSQL 分区表">
+                  PostgreSQL 分区表 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -351,7 +417,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#查看Postgresql的连接数"><span class="nav-number">1.</span> <span class="nav-text">查看Postgresql的连接数</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-UUID"><span class="nav-number">1.</span> <span class="nav-text">1. UUID</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Snowflake"><span class="nav-number">2.</span> <span class="nav-text">2. Snowflake</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Leaf"><span class="nav-number">3.</span> <span class="nav-text">3. Leaf</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-Leaf特性"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 Leaf特性</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
