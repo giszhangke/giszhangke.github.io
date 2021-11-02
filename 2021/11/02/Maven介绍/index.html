@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="Maven依赖关系、作用域以及编译打包依赖配置Dependency Optional示例：12345678910111213&amp;lt;project&amp;gt;  ...  &amp;lt;dependencies&amp;gt;    &amp;lt;!-- declare the dependency to be set as optional --&amp;gt;    &amp;lt;dependency&amp;gt;      &amp;lt;g">
+  <meta name="description" content="Maven依赖关系、作用域以及编译打包">
 <meta name="keywords" content="Maven">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Maven介绍">
 <meta property="og:url" content="https://klovis.top/2021/11/02/Maven介绍/index.html">
 <meta property="og:site_name" content="Klovis&#39;Blog">
-<meta property="og:description" content="Maven依赖关系、作用域以及编译打包依赖配置Dependency Optional示例：12345678910111213&amp;lt;project&amp;gt;  ...  &amp;lt;dependencies&amp;gt;    &amp;lt;!-- declare the dependency to be set as optional --&amp;gt;    &amp;lt;dependency&amp;gt;      &amp;lt;g">
+<meta property="og:description" content="Maven依赖关系、作用域以及编译打包">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-11-02T19:09:48.891Z">
+<meta property="og:updated_time" content="2021-11-02T19:15:26.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven介绍">
-<meta name="twitter:description" content="Maven依赖关系、作用域以及编译打包依赖配置Dependency Optional示例：12345678910111213&amp;lt;project&amp;gt;  ...  &amp;lt;dependencies&amp;gt;    &amp;lt;!-- declare the dependency to be set as optional --&amp;gt;    &amp;lt;dependency&amp;gt;      &amp;lt;g">
+<meta name="twitter:description" content="Maven依赖关系、作用域以及编译打包">
   <link rel="canonical" href="https://klovis.top/2021/11/02/Maven介绍/">
 
 
@@ -268,7 +268,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 03:09:48" itemprop="dateModified" datetime="2021-11-03T03:09:48+08:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 03:15:26" itemprop="dateModified" datetime="2021-11-03T03:15:26+08:00">2021-11-03</time>
               </span>
             
           
@@ -304,9 +304,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Maven依赖关系、作用域以及编译打包</p><h2 id="依赖配置"><a href="#依赖配置" class="headerlink" title="依赖配置"></a>依赖配置</h2><h3 id="Dependency-Optional"><a href="#Dependency-Optional" class="headerlink" title="Dependency Optional"></a>Dependency Optional</h3><p>示例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;project&gt;</span><br><span class="line">  ...</span><br><span class="line">  &lt;dependencies&gt;</span><br><span class="line">    &lt;!-- declare the dependency to be set as optional --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;sample.ProjectA&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;Project-A&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;1.0&lt;/version&gt;</span><br><span class="line">      &lt;scope&gt;compile&lt;/scope&gt;</span><br><span class="line">      &lt;optional&gt;true&lt;/optional&gt; &lt;!-- value will be true or false only --&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">  &lt;/dependencies&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure><a id="more"></a>
+        <p>Maven依赖关系、作用域以及编译打包</p>
+<a id="more"></a>
 
-
+<h2 id="依赖配置"><a href="#依赖配置" class="headerlink" title="依赖配置"></a>依赖配置</h2><h3 id="Dependency-Optional"><a href="#Dependency-Optional" class="headerlink" title="Dependency Optional"></a>Dependency Optional</h3><p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;project&gt;</span><br><span class="line">  ...</span><br><span class="line">  &lt;dependencies&gt;</span><br><span class="line">    &lt;!-- declare the dependency to be set as optional --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;sample.ProjectA&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;Project-A&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;1.0&lt;/version&gt;</span><br><span class="line">      &lt;scope&gt;compile&lt;/scope&gt;</span><br><span class="line">      &lt;optional&gt;true&lt;/optional&gt; &lt;!-- value will be true or false only --&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">  &lt;/dependencies&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
 
 <h4 id="How-do-optional-dependencies-work"><a href="#How-do-optional-dependencies-work" class="headerlink" title="How do optional dependencies work?"></a>How do optional dependencies work?</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Project-A -&gt; Project-B</span><br></pre></td></tr></table></figure>
 
