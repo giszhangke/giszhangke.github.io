@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="Snowflake的概念和优势1. UUIDUUID(Universally Unique Identifier)的标准型式包含32个16进制数字，以连字号分为五段，形式为8-4-4-4-12的36个字符，示例：550e8400-e29b-41d4-a716-446655440000，到目前为止业界一共有5种方式生成UUID，详情见IETF发布的UUID规范 A Universally Uniqu">
+  <meta name="description" content="Snowflake的概念和优势">
 <meta name="keywords" content="IdGenerator">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Snowflake介绍">
 <meta property="og:url" content="https://klovis.top/2020/11/02/Snowflake介绍/index.html">
 <meta property="og:site_name" content="Klovis&#39;Blog">
-<meta property="og:description" content="Snowflake的概念和优势1. UUIDUUID(Universally Unique Identifier)的标准型式包含32个16进制数字，以连字号分为五段，形式为8-4-4-4-12的36个字符，示例：550e8400-e29b-41d4-a716-446655440000，到目前为止业界一共有5种方式生成UUID，详情见IETF发布的UUID规范 A Universally Uniqu">
+<meta property="og:description" content="Snowflake的概念和优势">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://p0.meituan.net/travelcube/96034f8fa0f2cb14c21844a4fa12f50441574.png">
-<meta property="og:updated_time" content="2021-11-02T19:11:38.192Z">
+<meta property="og:updated_time" content="2021-11-02T19:19:42.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Snowflake介绍">
-<meta name="twitter:description" content="Snowflake的概念和优势1. UUIDUUID(Universally Unique Identifier)的标准型式包含32个16进制数字，以连字号分为五段，形式为8-4-4-4-12的36个字符，示例：550e8400-e29b-41d4-a716-446655440000，到目前为止业界一共有5种方式生成UUID，详情见IETF发布的UUID规范 A Universally Uniqu">
+<meta name="twitter:description" content="Snowflake的概念和优势">
 <meta name="twitter:image" content="https://p0.meituan.net/travelcube/96034f8fa0f2cb14c21844a4fa12f50441574.png">
   <link rel="canonical" href="https://klovis.top/2020/11/02/Snowflake介绍/">
 
@@ -270,7 +270,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 03:11:38" itemprop="dateModified" datetime="2021-11-03T03:11:38+08:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 03:19:42" itemprop="dateModified" datetime="2021-11-03T03:19:42+08:00">2021-11-03</time>
               </span>
             
           
@@ -299,8 +299,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Snowflake的概念和优势</p><h1 id="1-UUID"><a href="#1-UUID" class="headerlink" title="1. UUID"></a>1. UUID</h1><p>UUID(Universally Unique Identifier)的标准型式包含32个16进制数字，以连字号分为五段，形式为8-4-4-4-12的36个字符，示例：<code>550e8400-e29b-41d4-a716-446655440000</code>，到目前为止业界一共有5种方式生成UUID，详情见IETF发布的UUID规范 <a href="http://www.ietf.org/rfc/rfc4122.txt" target="_blank" rel="noopener">A Universally Unique IDentifier (UUID) URN Namespace</a>。</p><a id="more"></a>
+        <p>Snowflake的概念和优势</p>
+<a id="more"></a>
 
+<h1 id="1-UUID"><a href="#1-UUID" class="headerlink" title="1. UUID"></a>1. UUID</h1><p>UUID(Universally Unique Identifier)的标准型式包含32个16进制数字，以连字号分为五段，形式为8-4-4-4-12的36个字符，示例：<code>550e8400-e29b-41d4-a716-446655440000</code>，到目前为止业界一共有5种方式生成UUID，详情见IETF发布的UUID规范 <a href="http://www.ietf.org/rfc/rfc4122.txt" target="_blank" rel="noopener">A Universally Unique IDentifier (UUID) URN Namespace</a>。</p>
 <p>优点：</p>
 <ul>
 <li>性能非常高：本地生成，没有网络消耗。</li>
