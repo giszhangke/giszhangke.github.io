@@ -5,7 +5,10 @@ categories:
 - ansible
 tags:
 - ansible
+date: 2021-11-02 23:57:59
 ---
+ansible实践，在三台服务器上安装JDK
+<!--more-->
 
 # Ansible实践（一）
 

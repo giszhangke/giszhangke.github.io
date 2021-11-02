@@ -1,6 +1,14 @@
 ---
 title: URI设计
+categories:
+- other
+tags:
+- URI
+- 设计
+date: 2020-11-02 23:57:59
 ---
+
+ URI设计原则
 
 # URI设计
 

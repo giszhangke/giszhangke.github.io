@@ -4,7 +4,14 @@ categories:
 - kubernetes
 tags: 
 - kubernetes
+date: 2019-11-02 23:57:59
 ---
+
+
+
+rancher中偶遇配置不生效，可以直接用执行kubetcl命令
+
+<!--more-->
 
 
 

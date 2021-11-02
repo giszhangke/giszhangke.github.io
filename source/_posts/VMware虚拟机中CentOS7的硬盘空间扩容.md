@@ -6,6 +6,7 @@ categories:
 tags:
 - VMware
 - CentOs
+date: 2020-11-02 23:57:59
 ---
 
 
