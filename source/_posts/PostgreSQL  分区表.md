@@ -10,11 +10,9 @@ date: 2019-11-02 23:57:59
 
 
 
- 分区且
+ PostgreSQL 分区表
 
-
-
-PostgreSQL 分区表
+<!-- more -->
 
 # PostgreSQL  分区表
 
