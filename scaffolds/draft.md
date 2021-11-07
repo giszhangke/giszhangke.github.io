@@ -1,8 +1,9 @@
 ---
 title: {{ title }}
 date: {{ date }}
-categories:
+categories: 架构设计
 tags:
+  - 架构
 ---
 
 Excerpt (摘要)
