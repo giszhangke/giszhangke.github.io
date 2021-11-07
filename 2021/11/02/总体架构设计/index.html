@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="Klovis&#39;Blog">
 <meta property="og:description" content="总纲：构建业务架构设计的思维模型，以不变应万变">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-11-03T17:50:31.313Z">
+<meta property="og:updated_time" content="2021-11-07T11:13:55.191Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="业务总体架构设计">
 <meta name="twitter:description" content="总纲：构建业务架构设计的思维模型，以不变应万变">
@@ -268,7 +268,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-04 01:50:31" itemprop="dateModified" datetime="2021-11-04T01:50:31+08:00">2021-11-04</time>
+                <time title="Modified: 2021-11-07 19:13:55" itemprop="dateModified" datetime="2021-11-07T19:13:55+08:00">2021-11-07</time>
               </span>
             
           
@@ -462,11 +462,17 @@
 <h2 id="业务架构设计方法论"><a href="#业务架构设计方法论" class="headerlink" title="业务架构设计方法论"></a>业务架构设计方法论</h2><h3 id="TOGAF"><a href="#TOGAF" class="headerlink" title="TOGAF"></a>TOGAF</h3><p>企业架构（EA），一般包括业务架构（BA, 流程、组织）、应用架构（AA, 应用、服务）、数据架构（DA, 数据、信息）和技术架构（TA, 硬件、网络）这几方面内容</p>
 <p>​                        公司管理层</p>
 <p>​                                | 设计</p>
-<p>​                             战略（需求）</p>
+<p>​                             战略（需求）                                   -    第一层【公司战略层】</p>
 <p>​                                |    由业务架构师承接转化成业务架构设计</p>
-<p>​                          业务架构（BA）-（设计）    </p>
+<p>​                          业务架构（BA）-（设计）                 -    第二层【业务架构层】</p>
 <p>​                                 |   由数据/应用/技术架构师承接转化对应的架构设计</p>
-<p>​                          数据架构（DA）<br>​                          应用架构（AA）<br>​                          技术架构（TA）</p>
+<p>​                          数据架构（DA）                                  -    第三层【解决方案层】<br>​                          应用架构（AA）<br>​                          技术架构（TA）</p>
+<ul>
+<li>战略是公司最高层的设计, 是业务架构的需求</li>
+<li>业务架构师理解战略输出业务架构设计</li>
+<li>业务架构是数据/应用/技术架构师的需求</li>
+<li>上层驱动下层, 下层支撑论证上层</li>
+</ul>
 <h3 id="DDD"><a href="#DDD" class="headerlink" title="DDD"></a>DDD</h3><p>系统分层和对象职责</p>
 <p>业务  -&gt;  统一语言 -&gt; 限界上下文</p>
 <p>问题：</p>
@@ -498,8 +504,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2021/11/02/Maven介绍/" rel="next" title="Maven介绍">
-                  <i class="fa fa-chevron-left"></i> Maven介绍
+                <a href="/2020/11/02/Git操作/" rel="next" title="那些你不知道的Git实用操作">
+                  <i class="fa fa-chevron-left"></i> 那些你不知道的Git实用操作
                 </a>
               
             </div>
@@ -508,8 +514,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2021/11/04/宏观业务架构/" rel="prev" title="宏观业务架构">
-                  宏观业务架构 <i class="fa fa-chevron-right"></i>
+                <a href="/2021/11/02/查看Postgresql的连接数/" rel="prev" title="PostgreSQL连接数查询">
+                  PostgreSQL连接数查询 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -574,7 +580,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
