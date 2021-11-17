@@ -1,3 +1,6 @@
+<!-- 不蒜字统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <div class="copyright">{#
 #}{%- set current = date(Date.now(), "YYYY") %}{#
 #}{%- if theme.footer.beian.enable %}{#
@@ -40,6 +43,28 @@
   #}</span>
   {%- endif %}
 </div>
+
+<!-- 不蒜字统计 -->
+<div>
+  <i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">
+    访问人数：<span id="busuanzi_value_site_uv"></span>
+  </span>&nbsp;|&nbsp;
+  
+  <i class="fa fa-eye"></i>
+  <span id="busuanzi_container_site_pv">
+    总访问量：<span id="busuanzi_value_site_pv"></span>
+  </span>&nbsp;|&nbsp;
+  
+  <!-- 添加博客全站总字数统计-->
+  <i class="fa fa-pencil"></i>
+  <span class="post-count">博客全站共 {{ totalcount(site) }} 字</span>
+</div>
+
+<!--
+  作者：Jaybo
+  链接：https://juejin.cn/post/6844903558089801742
+-->
 
 {%- if theme.footer.powered.enable %}
   <div class="powered-by">{#
