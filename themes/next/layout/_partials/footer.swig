@@ -56,9 +56,11 @@
     总访问量：<span id="busuanzi_value_site_pv"></span>
   </span>&nbsp;|&nbsp;
   
-  <!-- 添加博客全站总字数统计-->
+  <!-- 添加博客全站总字数统计
   <i class="fa fa-pencil"></i>
   <span class="post-count">博客全站共 {{ totalcount(site) }} 字</span>
+  -->
+  
 </div>
 
 <!--
