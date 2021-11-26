@@ -55,20 +55,20 @@
   };
 </script>
 
-  <meta name="description" content="Excerpt (摘要)">
+  <meta name="description" content="摘要 Elasticsearch单节点安装，启动，验证">
 <meta name="keywords" content="NoSQL,Elasticsearch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Elasticsearch安装">
 <meta property="og:url" content="https://www.klovis.tech/2021/11/25/Elasticsearch安装/index.html">
 <meta property="og:site_name" content="Klovis&#39; Blog">
-<meta property="og:description" content="Excerpt (摘要)">
+<meta property="og:description" content="摘要 Elasticsearch单节点安装，启动，验证">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://www.klovis.tech/2021/11/25/Elasticsearch安装/Elasticsearch%E5%AE%89%E8%A3%85%5Ces_run_print.png">
-<meta property="og:updated_time" content="2021-11-26T07:56:40.795Z">
+<meta property="og:image" content="https://www.klovis.tech/2021/11/25/Elasticsearch安装/es_run_print.png">
+<meta property="og:updated_time" content="2021-11-26T08:10:52.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Elasticsearch安装">
-<meta name="twitter:description" content="Excerpt (摘要)">
-<meta name="twitter:image" content="https://www.klovis.tech/2021/11/25/Elasticsearch安装/Elasticsearch%E5%AE%89%E8%A3%85%5Ces_run_print.png">
+<meta name="twitter:description" content="摘要 Elasticsearch单节点安装，启动，验证">
+<meta name="twitter:image" content="https://www.klovis.tech/2021/11/25/Elasticsearch安装/es_run_print.png">
   <link rel="canonical" href="https://www.klovis.tech/2021/11/25/Elasticsearch安装/">
 
 
@@ -279,7 +279,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-26 15:56:40" itemprop="dateModified" datetime="2021-11-26T15:56:40+08:00">2021-11-26</time>
+                <time title="Modified: 2021-11-26 16:10:52" itemprop="dateModified" datetime="2021-11-26T16:10:52+08:00">2021-11-26</time>
               </span>
             
           
@@ -323,13 +323,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Excerpt (摘要)</p>
-<a id="more"></a>
-
-<p>Body (正文)</p>
-<p><strong>摘要</strong></p>
+        <p><strong>摘要</strong></p>
 <p>Elasticsearch单节点安装，启动，验证</p>
-<!-- more -->
+<a id="more"></a>
 
 
 
@@ -344,17 +340,29 @@
 <tbody><tr>
 <td>Centos</td>
 <td>7.6</td>
-<td>查看系统版本<figure class="highlight plain"><figcaption><span>/etc/redhat-release``` |</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">| JDK           | 1.8    |                                           |</span><br><span class="line">| Elasticsearch | 5.6.16 |                                           |</span><br><span class="line"></span><br><span class="line">## 安装步骤</span><br><span class="line"></span><br><span class="line">1. 下载安装包</span><br><span class="line"></span><br><span class="line">   ```curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.16.tar.gz</span><br></pre></td></tr></table></figure></td>
+<td>查看系统版本<code>cat /etc/redhat-release</code></td>
+</tr>
+<tr>
+<td>JDK</td>
+<td>1.8</td>
+<td></td>
+</tr>
+<tr>
+<td>Elasticsearch</td>
+<td>5.6.16</td>
+<td></td>
 </tr>
 </tbody></table>
-<ol start="2">
-<li><p>解压缩</p>
-<figure class="highlight plain"><figcaption><span>-xvf elasticsearch-5.6.16.tar.gz```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 添加用户组和用户</span><br><span class="line"></span><br><span class="line">   ```groupadd es &amp;&amp; useradd -g es es</span><br></pre></td></tr></table></figure>
-
-
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
+<li><p>下载安装包</p>
+<p><code>curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.16.tar.gz</code></p>
 </li>
-</ol>
-<ol start="4">
+<li><p>解压缩</p>
+<p><code>tar -xvf elasticsearch-5.6.16.tar.gz</code></p>
+</li>
+<li><p>添加用户组和用户</p>
+<p><code>groupadd es &amp;&amp; useradd -g es es</code></p>
+</li>
 <li><p>给新增用户添加安装目录权限</p>
 <p><code>chown -R es:es [安装目录]</code></p>
 <p>例如：</p>
@@ -370,7 +378,7 @@
 <p>例如：</p>
 <p><code>cd /data/elasticsearch/elasticsearch-5.6.16 &amp;&amp; ./bin/elasticsearch</code></p>
 <p>如果正常运行，打印输出如下</p>
-<p><img src="Elasticsearch%E5%AE%89%E8%A3%85%5Ces_run_print.png" alt="img"></p>
+<p><img src="es_run_print.png" alt="img"></p>
 </li>
 </ol>
 <h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><p>新打开一个终端窗口，输入<code>curl `http://localhost:9200/?pretty</code> ,  正常情况会输出类似结果</p>
@@ -480,7 +488,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装环境前置条件"><span class="nav-number">1.1.</span> <span class="nav-text">安装环境前置条件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动"><span class="nav-number">2.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#验证"><span class="nav-number">3.</span> <span class="nav-text">验证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见问题"><span class="nav-number">4.</span> <span class="nav-text">常见问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装环境前置条件"><span class="nav-number">1.1.</span> <span class="nav-text">安装环境前置条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装步骤"><span class="nav-number">1.2.</span> <span class="nav-text">安装步骤</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动"><span class="nav-number">2.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#验证"><span class="nav-number">3.</span> <span class="nav-text">验证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见问题"><span class="nav-number">4.</span> <span class="nav-text">常见问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
