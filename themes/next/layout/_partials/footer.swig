@@ -44,7 +44,7 @@
   {%- endif %}
 </div>
 
-<!-- 不蒜字统计 -->
+<!-- 不蒜字统计
 <div>
   <i class="fa fa-user-md"></i>
   <span id="busuanzi_container_site_uv">
@@ -54,14 +54,13 @@
   <i class="fa fa-eye"></i>
   <span id="busuanzi_container_site_pv">
     总访问量：<span id="busuanzi_value_site_pv"></span>
-  </span><!-- &nbsp;|&nbsp;-->
+  </span>&nbsp;|&nbsp;
   
-  <!-- 添加博客全站总字数统计
   <i class="fa fa-pencil"></i>
   <span class="post-count">博客全站共 {{ totalcount(site) }} 字</span>
-  -->
-
+ 
 </div>
+-->
 
 <!--
   作者：Jaybo
