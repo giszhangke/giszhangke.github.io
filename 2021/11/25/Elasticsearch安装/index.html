@@ -63,12 +63,10 @@
 <meta property="og:site_name" content="Klovis&#39; Blog">
 <meta property="og:description" content="摘要 Elasticsearch单节点安装，启动，验证">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://www.klovis.tech/2021/11/25/Elasticsearch安装/es_run_print.png">
-<meta property="og:updated_time" content="2021-11-26T08:10:52.163Z">
+<meta property="og:updated_time" content="2021-11-26T13:47:31.610Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Elasticsearch安装">
 <meta name="twitter:description" content="摘要 Elasticsearch单节点安装，启动，验证">
-<meta name="twitter:image" content="https://www.klovis.tech/2021/11/25/Elasticsearch安装/es_run_print.png">
   <link rel="canonical" href="https://www.klovis.tech/2021/11/25/Elasticsearch安装/">
 
 
@@ -279,7 +277,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-26 16:10:52" itemprop="dateModified" datetime="2021-11-26T16:10:52+08:00">2021-11-26</time>
+                <time title="Modified: 2021-11-26 21:47:31" itemprop="dateModified" datetime="2021-11-26T21:47:31+08:00">2021-11-26</time>
               </span>
             
           
@@ -355,7 +353,7 @@
 </tbody></table>
 <h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
 <li><p>下载安装包</p>
-<p><code>curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.16.tar.gz</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.16.tar.gz</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>解压缩</p>
 <p><code>tar -xvf elasticsearch-5.6.16.tar.gz</code></p>
@@ -374,27 +372,29 @@
 <p><code>su es</code></p>
 </li>
 <li><p>启动elasticsearch</p>
-<p>cd [安装目录] &amp;&amp; ./bin/elasticsearch</p>
+<p><code>cd [安装目录] &amp;&amp; ./bin/elasticsearch</code></p>
 <p>例如：</p>
-<p><code>cd /data/elasticsearch/elasticsearch-5.6.16 &amp;&amp; ./bin/elasticsearch</code></p>
-<p>如果正常运行，打印输出如下</p>
-<p><img src="es_run_print.png" alt="img"></p>
+<figure class="highlight plain"><figcaption><span>/data/elasticsearch/elasticsearch-5.6.16 && ./bin/elasticsearch```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   如果正常运行，打印输出如下</span><br><span class="line"></span><br><span class="line">   ![img](es_run_print.png)</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line"># 验证</span><br><span class="line"></span><br><span class="line">新打开一个终端窗口，输入``curl `http://localhost:9200/?pretty`` ,  正常情况会输出类似结果</span><br><span class="line"></span><br><span class="line">```json</span><br><span class="line">&#123;</span><br><span class="line">  &quot;name&quot; : &quot;GzSfhee&quot;,</span><br><span class="line">  &quot;cluster_name&quot; : &quot;elasticsearch&quot;,</span><br><span class="line">  &quot;cluster_uuid&quot; : &quot;4cVKpiWgQlSE9OhC7cYzcA&quot;,</span><br><span class="line">  &quot;version&quot; : &#123;</span><br><span class="line">    &quot;number&quot; : &quot;5.6.16&quot;,</span><br><span class="line">    &quot;build_hash&quot; : &quot;3a740d1&quot;,</span><br><span class="line">    &quot;build_date&quot; : &quot;2019-03-13T15:33:36.565Z&quot;,</span><br><span class="line">    &quot;build_snapshot&quot; : false,</span><br><span class="line">    &quot;lucene_version&quot; : &quot;6.6.1&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;tagline&quot; : &quot;You Know, for Search&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
-<h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><p>新打开一个终端窗口，输入<code>curl `http://localhost:9200/?pretty</code> ,  正常情况会输出类似结果</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span> : <span class="string">"GzSfhee"</span>,</span><br><span class="line">  <span class="attr">"cluster_name"</span> : <span class="string">"elasticsearch"</span>,</span><br><span class="line">  <span class="attr">"cluster_uuid"</span> : <span class="string">"4cVKpiWgQlSE9OhC7cYzcA"</span>,</span><br><span class="line">  <span class="attr">"version"</span> : &#123;</span><br><span class="line">    <span class="attr">"number"</span> : <span class="string">"5.6.16"</span>,</span><br><span class="line">    <span class="attr">"build_hash"</span> : <span class="string">"3a740d1"</span>,</span><br><span class="line">    <span class="attr">"build_date"</span> : <span class="string">"2019-03-13T15:33:36.565Z"</span>,</span><br><span class="line">    <span class="attr">"build_snapshot"</span> : <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"lucene_version"</span> : <span class="string">"6.6.1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"tagline"</span> : <span class="string">"You Know, for Search"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>可以通过参数改变集群名称和节点名称</p>
 <p><code>./bin/elasticsearch -Ecluster.name=my_cluster_name -Enode.name=my_node_name</code></p>
 <p>如果想把 Elasticsearch 作为一个守护进程在后台运行，那么可以在后面添加参数 <code>-d</code></p>
 <h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><ol>
 <li><p>启动后只能本机访问</p>
 <ul>
-<li>用<code>exit</code>命令退出es用户</li>
-<li>修改network.host属性，例如改为0.0.0.0不做访问ip限制 <code>vim [安装目录]/config/elasticsearch.yml</code></li>
-<li>编辑/etc/sysctl.conf文件，修改或新增属性<code>vm.max_map_count=655360</code>，执行<code>sysctl -p</code>命令使修改生效</li>
-<li>关闭防火墙或者开放elasticsearch服务端口9200</li>
-<li>切换回es用户<code>su es</code>重新启动elasticsearch就可以远程访问了</li>
+<li><p>用<code>exit</code>命令退出es用户</p>
+</li>
+<li><p>修改<code>network.host</code>属性，例如改为<code>0.0.0.0</code>不做访问ip限制 </p>
+<p><code>vim [安装目录]/config/elasticsearch.yml</code></p>
+</li>
+<li><p>编辑<code>/etc/sysctl.conf</code>文件，修改或新增属性<code>vm.max_map_count=655360</code>，执行<code>sysctl -p</code>命令使修改生效</p>
+</li>
+<li><p>关闭防火墙或者开放elasticsearch服务端口<code>9200</code></p>
+</li>
+<li><p>切换回es用户<code>su es</code>重新启动elasticsearch就可以远程访问了</p>
+</li>
 </ul>
 </li>
 </ol>
@@ -488,7 +488,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装环境前置条件"><span class="nav-number">1.1.</span> <span class="nav-text">安装环境前置条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装步骤"><span class="nav-number">1.2.</span> <span class="nav-text">安装步骤</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动"><span class="nav-number">2.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#验证"><span class="nav-number">3.</span> <span class="nav-text">验证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见问题"><span class="nav-number">4.</span> <span class="nav-text">常见问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装环境前置条件"><span class="nav-number">1.1.</span> <span class="nav-text">安装环境前置条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装步骤"><span class="nav-number">1.2.</span> <span class="nav-text">安装步骤</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动"><span class="nav-number">2.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见问题"><span class="nav-number">3.</span> <span class="nav-text">常见问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -516,7 +516,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">categories</span>
         </a>
       </div>
@@ -529,7 +529,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
