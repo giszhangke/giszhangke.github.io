@@ -609,7 +609,7 @@
 
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+NexT.utils.getScript('/lib/Valine.min.klovis.js?v=1.4.14', () => {
   var GUEST = ['nick', 'mail', 'link'];
   var guest = 'nick,mail,link';
   guest = guest.split(',').filter(item => {
@@ -629,6 +629,7 @@ NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', 
     lang: 'zh-cn' || 'zh-cn',
     path: location.pathname,
     requiredFields: ['nick','mail'],
+    serverURLs: https://mjepdfoa.api.lncldglobal.com,
   });
 }, window.Valine);
 </script>
