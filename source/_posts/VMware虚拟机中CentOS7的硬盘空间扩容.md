@@ -1,7 +1,7 @@
 ---
 title: VMware虚拟机中CentOS7的硬盘空间扩容
 categories:
-- tool
+- Tool
 - VMware
 tags:
 - VMware

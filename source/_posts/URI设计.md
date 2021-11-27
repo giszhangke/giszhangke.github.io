@@ -1,7 +1,7 @@
 ---
 title: URI设计
 categories:
-- other
+- Other
 tags:
 - URI
 - 设计

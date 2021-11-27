@@ -1,10 +1,10 @@
 ---
 title: 那些你不知道的Git实用操作
 categories:
-- tool
-- git
+- Tool
+- Git
 tags: 
-- git
+- Git
 date: 2020-11-02 23:57:59
 ---
 

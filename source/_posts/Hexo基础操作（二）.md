@@ -1,10 +1,10 @@
 ---
 title: Hexo基础操作（二）
 categories:
-- tool
-- hexo
+- Tool
+- Hexo
 tags:
-- hexo
+- Hexo
 date: 2021-11-02 23:57:59
 ---
  hexo常用操作

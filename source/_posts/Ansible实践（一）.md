@@ -1,10 +1,10 @@
 ---
 title: Ansible实践（一）
 categories:
-- tool
-- ansible
+- Tool
+- Ansible
 tags:
-- ansible
+- Ansible
 date: 2021-11-02 23:57:59
 ---
 ansible实践，在三台服务器上安装JDK

@@ -1,7 +1,7 @@
 ---
 title: Maven介绍
 categories:
-- tool
+- Tool
 - Maven
 tags:
 - Maven

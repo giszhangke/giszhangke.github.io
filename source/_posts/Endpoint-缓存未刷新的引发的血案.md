@@ -1,9 +1,9 @@
 ---
 title: Endpoint 缓存未刷新的引发的血案
 categories:
-- kubernetes
+- Kubernetes
 tags: 
-- kubernetes
+- Kubernetes
 date: 2019-11-02 23:57:59
 ---
 

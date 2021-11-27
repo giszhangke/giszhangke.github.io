@@ -1,7 +1,7 @@
 ---
 title: PostgreSQL 分区表
 categories:
-- database
+- Database
 - PostgreSQL
 tags:
 - PostgreSQL

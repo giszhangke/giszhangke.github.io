@@ -1,7 +1,7 @@
 ---
 title: VMware虚拟机下CentOs 7设置固定IP
 categories:
-- tool
+- Tool
 - VMware
 tags:
 - VMware

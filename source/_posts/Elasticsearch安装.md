@@ -31,7 +31,9 @@ Elasticsearch单节点安装，启动，验证
 
 1. 下载安装包
 
-   `curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.16.tar.gz`
+   ```bash
+   curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.16.tar.gz
+   ```
 
 2. 解压缩
 
@@ -59,11 +61,11 @@ Elasticsearch单节点安装，启动，验证
 
 2. 启动elasticsearch
 
-   cd [安装目录] && ./bin/elasticsearch
+   ``cd [安装目录] && ./bin/elasticsearch``
 
    例如：
 
-   ``cd /data/elasticsearch/elasticsearch-5.6.16 && ./bin/elasticsearch``
+   ```cd /data/elasticsearch/elasticsearch-5.6.16 && ./bin/elasticsearch```
 
    如果正常运行，打印输出如下
 
@@ -93,7 +95,7 @@ Elasticsearch单节点安装，启动，验证
 
 可以通过参数改变集群名称和节点名称
 
-``./bin/elasticsearch -Ecluster.name=my_cluster_name -Enode.name=my_node_name``
+```./bin/elasticsearch -Ecluster.name=my_cluster_name -Enode.name=my_node_name```
 
 如果想把 Elasticsearch 作为一个守护进程在后台运行，那么可以在后面添加参数 `-d`
 
@@ -102,11 +104,17 @@ Elasticsearch单节点安装，启动，验证
 1. 启动后只能本机访问
 
    - 用``exit``命令退出es用户
-   - 修改network.host属性，例如改为0.0.0.0不做访问ip限制 ``vim [安装目录]/config/elasticsearch.yml``
-   - 编辑/etc/sysctl.conf文件，修改或新增属性``vm.max_map_count=655360``，执行``sysctl -p``命令使修改生效
-   - 关闭防火墙或者开放elasticsearch服务端口9200
-   - 切换回es用户``su es``重新启动elasticsearch就可以远程访问了
+   
+   - 修改``network.host``属性，例如改为``0.0.0.0``不做访问ip限制 
+   
+     ``vim [安装目录]/config/elasticsearch.yml``
 
+   - 编辑``/etc/sysctl.conf``文件，修改或新增属性``vm.max_map_count=655360``，执行``sysctl -p``命令使修改生效
+   
+   - 关闭防火墙或者开放elasticsearch服务端口`9200`
+   
+   - 切换回es用户``su es``重新启动elasticsearch就可以远程访问了
+   
    
 
 # 参考资料
