@@ -63,9 +63,9 @@ Elasticsearch单节点安装，启动，验证
 
    ``cd [安装目录] && ./bin/elasticsearch``
 
-   例如：
+   例如
 
-   ```cd /data/elasticsearch/elasticsearch-5.6.16 && ./bin/elasticsearch```
+   ``cd /data/elasticsearch/elasticsearch-5.6.16 && ./bin/elasticsearch``
 
    如果正常运行，打印输出如下
 
@@ -75,7 +75,7 @@ Elasticsearch单节点安装，启动，验证
 
 # 验证
 
-新打开一个终端窗口，输入``curl `http://localhost:9200/?pretty`` ,  正常情况会输出类似结果
+新打开一个终端窗口，输入``curl http://localhost:9200/?pretty`` ,  正常情况会输出类似结果
 
 ```json
 {

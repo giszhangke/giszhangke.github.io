@@ -1,11 +1,11 @@
 ---
-title: VMware虚拟机下CentOs 7设置固定IP
+title: VMware虚拟机下CentOS 7设置固定IP
 categories:
 - Tool
 - VMware
 tags:
 - VMware
-- CentOs
+- CentOS
 date: 2020-11-02 23:57:59
 ---
 
@@ -13,7 +13,7 @@ VMware虚拟机下CentOs 7设置固定IP方法
 
 <!-- more -->
 
-# VMware虚拟机下CentOs 7设置固定IP
+# VMware虚拟机下CentOS 7设置固定IP
 
 修改网卡配置
 

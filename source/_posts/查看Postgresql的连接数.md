@@ -1,6 +1,8 @@
 ---
 title: PostgreSQL连接数查询
-categories: Database
+categories: 
+- Database
+- PostgreSQL
 tags:
   - PostgreSQL
 date: 2021-11-02 23:57:59
