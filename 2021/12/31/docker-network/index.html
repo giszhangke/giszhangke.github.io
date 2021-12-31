@@ -55,18 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="Klovis&apos; Blog">
-<meta name="keywords" content="java,spring">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Klovis&#39; Blog">
-<meta property="og:url" content="https://www.klovis.tech/categories/Tool/index.html">
+  <meta name="description" content="Excerpt (摘要)">
+<meta name="keywords" content="docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker容器和宿主机通信">
+<meta property="og:url" content="https://www.klovis.tech/2021/12/31/docker-network/index.html">
 <meta property="og:site_name" content="Klovis&#39; Blog">
-<meta property="og:description" content="Klovis&apos; Blog">
+<meta property="og:description" content="Excerpt (摘要)">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-12-31T10:48:13.089Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Klovis&#39; Blog">
-<meta name="twitter:description" content="Klovis&apos; Blog">
-  <link rel="canonical" href="https://www.klovis.tech/categories/Tool/">
+<meta name="twitter:title" content="Docker容器和宿主机通信">
+<meta name="twitter:description" content="Excerpt (摘要)">
+  <link rel="canonical" href="https://www.klovis.tech/2021/12/31/docker-network/">
 
 
 <script id="page-configurations">
@@ -74,13 +75,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>Category: Tool | Klovis' Blog</title>
+  <title>Docker容器和宿主机通信 | Klovis' Blog</title>
   
 
 
@@ -228,296 +229,181 @@
         <div class="content-wrap">
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block category">
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">Tool<small>Category</small>
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://www.klovis.tech/2021/12/31/docker-network/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Klovis Zhang">
+      <meta itemprop="description" content="Klovis' Blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Klovis' Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Docker容器和宿主机通信
+
+          
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2021-12-31 18:20:42 / Modified: 18:48:13" itemprop="dateCreated datePublished" datetime="2021-12-31T18:20:42+08:00">2021-12-31</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/容器化/" itemprop="url" rel="index"><span itemprop="name">容器化</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/容器化/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2021/12/31/docker-network/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2021/12/31/docker-network/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+        <p>Excerpt (摘要)</p>
+<a id="more"></a>
 
-  
-  
+<p>Body (正文)</p>
+<p>摘要<br>docker和宿主机之前有三种网络通信模式：</p>
+<ul>
+<li><p>none</p>
+</li>
+<li><p>host</p>
+</li>
+<li><p>bridge  (默认)</p>
+</li>
+</ul>
+<!-- more -->
 
-  
+
+
+<h1 id="问题由来"><a href="#问题由来" class="headerlink" title="问题由来"></a>问题由来</h1><p>在测试服务器上安装好Docker后，设置端口映射并启动容器，发现在PC访问不了服务</p>
+<h1 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h1><p>经查发现容器和宿主机之间通信异常<br>宿主机上Docker的网卡是 docker0， 对应的ip是<code>172.17.0.1</code><br>docker容器内部的ip是<code>172.17.0.2</code><br>但是主机<code>ping</code>不通<code>172.17.0.2</code><br>容器也<code>ping</code>不通<code>172.17.0.1</code></p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>先执行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">service docker stop</span><br><span class="line">yum install bridge-utils</span><br><span class="line">brctl addbr br0</span><br><span class="line">ip addr add 172.16.0.1/24 dev br0</span><br><span class="line">ip link set dev br0 up</span><br><span class="line"># 在daemon.json中增加 &quot;bridge&quot;:&quot;br0&quot;</span><br><span class="line">vim /etc/docker/daemon.json</span><br><span class="line">service docker start</span><br></pre></td></tr></table></figure>
+
+<p>再重启docker容器</p>
+
+    </div>
+
     
-    <div class="collection-year">
-      <h1 class="collection-header">2021</h1>
-    </div>
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2021/12/14/maven-create-archetype/" itemprop="url">
-            <span itemprop="name">创建Maven代码骨架</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-12-14T13:34:58+08:00"
-              content="2021-12-14">
-          12-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2021/11/02/Ansible实践（一）/" itemprop="url">
-            <span itemprop="name">Ansible实践（一）</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-11-02T23:57:59+08:00"
-              content="2021-11-02">
-          11-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2021/11/02/Hexo基础操作（一）/" itemprop="url">
-            <span itemprop="name">Hexo基础操作（一）</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-11-02T23:57:59+08:00"
-              content="2021-11-02">
-          11-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2021/11/02/Hexo基础操作（二）/" itemprop="url">
-            <span itemprop="name">Hexo基础操作（二）</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-11-02T23:57:59+08:00"
-              content="2021-11-02">
-          11-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2021/11/02/Maven介绍/" itemprop="url">
-            <span itemprop="name">Maven介绍</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-11-02T23:57:59+08:00"
-              content="2021-11-02">
-          11-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
     
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
-    </div>
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
+    
         
-          <a class="post-title-link" href="/2020/11/02/Git操作/" itemprop="url">
-            <span itemprop="name">那些你不知道的Git实用操作</span>
-          </a>
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/docker/" rel="tag"># docker</a>
+            
+          </div>
         
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-11-02T23:57:59+08:00"
-              content="2020-11-02">
-          11-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
         
-          <a class="post-title-link" href="/2020/11/02/VMware虚拟机中CentOS7的硬盘空间扩容/" itemprop="url">
-            <span itemprop="name">VMware虚拟机中CentOS7的硬盘空间扩容</span>
-          </a>
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2021/12/14/maven-create-archetype/" rel="next" title="创建Maven代码骨架">
+                  <i class="fa fa-chevron-left"></i> 创建Maven代码骨架
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
         
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-11-02T23:57:59+08:00"
-              content="2020-11-02">
-          11-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/11/02/VMware虚拟机下CentOs 7设置固定IP/" itemprop="url">
-            <span itemprop="name">VMware虚拟机下CentOS 7设置固定IP</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-11-02T23:57:59+08:00"
-              content="2020-11-02">
-          11-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    </div>
+      </footer>
+    
   </div>
   
   
   
+  </article>
 
-  
-
+  </div>
 
 
           </div>
           
+    
+    <div class="comments" id="comments"></div>
+  
 
         </div>
           
@@ -532,6 +418,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -544,6 +435,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题由来"><span class="nav-number">1.</span> <span class="nav-text">问题由来</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原因分析"><span class="nav-number">2.</span> <span class="nav-text">原因分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方案"><span class="nav-number">3.</span> <span class="nav-text">解决方案</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
