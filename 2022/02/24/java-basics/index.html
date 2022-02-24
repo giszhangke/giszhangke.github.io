@@ -55,18 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="Klovis&apos; Blog">
-<meta name="keywords" content="java,spring">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Klovis&#39; Blog">
-<meta property="og:url" content="https://www.klovis.tech/archives/index.html">
+  <meta name="description" content="Java语法基础要点">
+<meta name="keywords" content="Draft,Java,基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java语法基础">
+<meta property="og:url" content="https://www.klovis.tech/2022/02/24/java-basics/index.html">
 <meta property="og:site_name" content="Klovis&#39; Blog">
-<meta property="og:description" content="Klovis&apos; Blog">
+<meta property="og:description" content="Java语法基础要点">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2022-02-24T14:53:55.591Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Klovis&#39; Blog">
-<meta name="twitter:description" content="Klovis&apos; Blog">
-  <link rel="canonical" href="https://www.klovis.tech/archives/">
+<meta name="twitter:title" content="Java语法基础">
+<meta name="twitter:description" content="Java语法基础要点">
+  <link rel="canonical" href="https://www.klovis.tech/2022/02/24/java-basics/">
 
 
 <script id="page-configurations">
@@ -74,13 +75,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
-    isArchive: true
+    isArchive: false
   };
 </script>
 
-  <title>Archive | Klovis' Blog</title>
+  <title>Java语法基础 | Klovis' Blog</title>
   
 
 
@@ -228,363 +229,167 @@
         <div class="content-wrap">
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        
-        
-        
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://www.klovis.tech/2022/02/24/java-basics/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Klovis Zhang">
+      <meta itemprop="description" content="Klovis' Blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Klovis' Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Java语法基础
+
           
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2022-02-24 22:10:25 / Modified: 22:53:55" itemprop="dateCreated datePublished" datetime="2022-02-24T22:10:25+08:00">2022-02-24</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
         
-        <span class="collection-header">Um..! 25 posts in total. Keep on posting.</span>
-      </div>
+      
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2022/02/24/java-basics/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2022/02/24/java-basics/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Java语法基础要点</p>
+<a id="more"></a>
+
+<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="重写equals方法进为什么要重写hashCode"><a href="#重写equals方法进为什么要重写hashCode" class="headerlink" title="重写equals方法进为什么要重写hashCode"></a>重写equals方法进为什么要重写hashCode</h2><ul>
+<li><p>在有些地方会使用到hashcode, 比如说HashMap中的元素，如果相同对象不能保证hashcode是一致的就会导致bug，比如说如果Key为引用对象时，虽然equals相等，但是可能插入的数据，用另一个equal相等的Key去get,,  会get不value</p>
+</li>
+<li><p>由于我们在 HashMapKey 对象里没有定义 equals 方法，系统就不得不调用 Object 类的 equals 方法，同理由于 Object 的固有方法是根据两个对象的内存地址来判断，所以 k1 和 k2 一定不会相等</p>
+</li>
+</ul>
+<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。这种参数类型可以用在类、接口和方法</p>
+<p>的创建中，分别称为泛型类、泛型接口、泛型方法</p>
+<h2 id="泛型擦除"><a href="#泛型擦除" class="headerlink" title="泛型擦除"></a>泛型擦除</h2><p>Java中的泛型基本上都是在编译器这个层次来实现的。在生成的Java字节码中是不包含泛型中的类型信息的。使用泛型的时候加上的类型参数，会在编译器在编译的时候去掉。这个过程就称为类型擦除</p>
+
+    </div>
+
+    
+    
+    
+        
       
 
-      
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Draft/" rel="tag"># Draft</a>
+            
+              <a href="/tags/Java/" rel="tag"># Java</a>
+            
+              <a href="/tags/基础/" rel="tag"># 基础</a>
+            
+          </div>
+        
 
-  
-  
+        
 
-  
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2022/02/23/mysql-lock/" rel="next" title="MySQL锁及使用场景">
+                  <i class="fa fa-chevron-left"></i> MySQL锁及使用场景
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
     
-    <div class="collection-year">
-      <h1 class="collection-header">2022</h1>
-    </div>
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2022/02/24/java-basics/" itemprop="url">
-            <span itemprop="name">Java语法基础</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2022-02-24T22:10:25+08:00"
-              content="2022-02-24">
-          02-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2022/02/23/mysql-lock/" itemprop="url">
-            <span itemprop="name">MySQL锁及使用场景</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2022-02-23T22:35:09+08:00"
-              content="2022-02-23">
-          02-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2022/02/15/jenkins-cicd-docker/" itemprop="url">
-            <span itemprop="name">Jenkins Docker容器中启动其他的Docker容器</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2022-02-15T16:00:08+08:00"
-              content="2022-02-15">
-          02-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-    
-    <div class="collection-year">
-      <h1 class="collection-header">2021</h1>
-    </div>
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2021/12/31/docker-network/" itemprop="url">
-            <span itemprop="name">Docker容器和宿主机通信</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-12-31T18:20:42+08:00"
-              content="2021-12-31">
-          12-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2021/12/14/maven-create-archetype/" itemprop="url">
-            <span itemprop="name">创建Maven代码骨架</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-12-14T13:34:58+08:00"
-              content="2021-12-14">
-          12-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2021/11/25/Elasticsearch安装/" itemprop="url">
-            <span itemprop="name">Elasticsearch安装</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-11-25T18:02:49+08:00"
-              content="2021-11-25">
-          11-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2021/11/18/DDD实战：通用领域模型落地/" itemprop="url">
-            <span itemprop="name">DDD实战：通用领域模型落地</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-11-18T22:45:59+08:00"
-              content="2021-11-18">
-          11-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2021/11/18/领域模型的设计实现过程/" itemprop="url">
-            <span itemprop="name">领域模型的设计实现过程</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-11-18T22:45:59+08:00"
-              content="2021-11-18">
-          11-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2021/11/16/从事件风暴到微服务设计的落地的过程/" itemprop="url">
-            <span itemprop="name">从事件风暴到微服务设计的落地的过程</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-11-16T20:28:19+08:00"
-              content="2021-11-16">
-          11-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2021/11/07/宏观业务架构（二）/" itemprop="url">
-            <span itemprop="name">宏观业务架构（二）</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-11-07T16:09:25+08:00"
-              content="2021-11-07">
-          11-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-
-    </div>
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
-
+  </div>
 
 
           </div>
           
+    
+    <div class="comments" id="comments"></div>
+  
 
         </div>
           
@@ -599,6 +404,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -611,6 +421,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串"><span class="nav-number">1.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#重写equals方法进为什么要重写hashCode"><span class="nav-number">1.1.</span> <span class="nav-text">重写equals方法进为什么要重写hashCode</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#泛型"><span class="nav-number">2.</span> <span class="nav-text">泛型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">2.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#泛型擦除"><span class="nav-number">2.2.</span> <span class="nav-text">泛型擦除</span></a></li></ol></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
