@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="领域模型设计领域驱动与微服务实践">
+<meta name="keywords" content="架构,Draft,DDD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="领域模型的设计实现过程">
+<meta property="og:url" content="https://www.klovis.tech/2021/11/18/领域模型的设计实现过程/index.html">
+<meta property="og:site_name" content="Klovis&#39; Blog">
+<meta property="og:description" content="领域模型设计领域驱动与微服务实践">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2022-02-24T14:44:54.925Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="领域模型的设计实现过程">
+<meta name="twitter:description" content="领域模型设计领域驱动与微服务实践">
+  <link rel="canonical" href="https://www.klovis.tech/2021/11/18/领域模型的设计实现过程/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>领域模型的设计实现过程 | Klovis' Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3a993893e821c49487fd8fb9a22bef13";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Klovis' Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://www.klovis.tech/2021/11/18/领域模型的设计实现过程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Klovis Zhang">
+      <meta itemprop="description" content="Klovis' Blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Klovis' Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">领域模型的设计实现过程
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2021-11-18 22:45:59" itemprop="dateCreated datePublished" datetime="2021-11-18T22:45:59+08:00">2021-11-18</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-24 22:44:54" itemprop="dateModified" datetime="2022-02-24T22:44:54+08:00">2022-02-24</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/架构设计/" itemprop="url" rel="index"><span itemprop="name">架构设计</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/架构设计/DDD/" itemprop="url" rel="index"><span itemprop="name">DDD</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2021/11/18/领域模型的设计实现过程/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2021/11/18/领域模型的设计实现过程/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>领域模型设计<br>领域驱动与微服务实践</p>
+<a id="more"></a>
+
+<h1 id="领域模型设计"><a href="#领域模型设计" class="headerlink" title="领域模型设计"></a>领域模型设计</h1><p>领域 -&gt; 模型（充血模型） -&gt; 数据库设计</p>
+<ul>
+<li>事件风暴法</li>
+<li>原文分析法</li>
+<li>四色建模法</li>
+</ul>
+<h2 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h2><p>继承关系的处理（NoSQL or sssssRDS）</p>
+<h2 id="程序设计"><a href="#程序设计" class="headerlink" title="程序设计"></a>程序设计</h2><ul>
+<li><p>服务（Service）</p>
+<p>领域建模中标识某些行为或操作        ——-       一组实体操作的组合，组成服务的行为</p>
+</li>
+<li><p>实体（Entity）</p>
+<p>领域建模中表示每一个业务个体的领域对象      ——     模拟现实世界的物体，有属性和操作</p>
+</li>
+<li><p>值对象（Value Object）</p>
+<p>领域建模中表示某个客观事物的领域对象</p>
+</li>
+</ul>
+<h3 id="贫血模型设计"><a href="#贫血模型设计" class="headerlink" title="贫血模型设计"></a>贫血模型设计</h3><p>service层同时包含业务和技术实现，随着业务的发展代码会变的不易维护</p>
+<h3 id="充血模型设计"><a href="#充血模型设计" class="headerlink" title="充血模型设计"></a>充血模型设计</h3><p>service层只聚集于业务，把技术实现细节封装起来，通过领域对象把业务和技术实现隔离开</p>
+<p><strong>聚合关系</strong></p>
+<p>工厂（Factory）和仓库（Repository）</p>
+<p>限界上下文 - 可以用来划分微服务</p>
+<h2 id="领域驱动设计的分层架构"><a href="#领域驱动设计的分层架构" class="headerlink" title="领域驱动设计的分层架构"></a>领域驱动设计的分层架构</h2><p>微服务应该小而专， 数据库表只由一个微服务维护，其他微服务通过接口调用对应的微服务来操作该表</p>
+<h2 id="去中心化数据管理"><a href="#去中心化数据管理" class="headerlink" title="去中心化数据管理"></a>去中心化数据管理</h2><p>MySQL、TiDB NewSQL（生产库）、NoSQL 大数据分析平台（查询库）</p>
+<h2 id="微信服务架构实现读写分离"><a href="#微信服务架构实现读写分离" class="headerlink" title="微信服务架构实现读写分离"></a>微信服务架构实现读写分离</h2><p>实时（秒级）查询方案： 事件 + NoSQL  （大宽表）</p>
+<h3 id="数据库纵向拆分"><a href="#数据库纵向拆分" class="headerlink" title="数据库纵向拆分"></a>数据库纵向拆分</h3><p>减少join</p>
+<p>生产库，查询库</p>
+<h3 id="跨库关联查询解决方案"><a href="#跨库关联查询解决方案" class="headerlink" title="跨库关联查询解决方案"></a>跨库关联查询解决方案</h3><ul>
+<li><p>方案一：分步查询，数据补填</p>
+<p>存在问题 会有一些条件不好过滤，  可以使用数据字段冗余来处理，但是也有局限，只适合相对固定的过滤条件</p>
+</li>
+<li><p>方案二</p>
+<p>NoSQL空间换时间，写到一张宽表里，相当于提前join后写入NoSQL，查询的时间从NoSQL里查询</p>
+</li>
+</ul>
+<h1 id="领域驱动与微服务实践"><a href="#领域驱动与微服务实践" class="headerlink" title="领域驱动与微服务实践"></a>领域驱动与微服务实践</h1><h2 id="为什么需要领域驱动"><a href="#为什么需要领域驱动" class="headerlink" title="为什么需要领域驱动"></a>为什么需要领域驱动</h2><p>在新项目开发中起作用吗？</p>
+<p>在老项目维护中起作用吗？</p>
+<p>在技术架构演化中起作用吗？</p>
+<p>业务越复杂，领域驱动越有用</p>
+<p>新项目开发时用领域驱动主要是着眼于日后维护</p>
+<p><strong>新项目为了快速上线，没有使用领域驱动，后期如何转换成领域驱动设计？</strong></p>
+<ul>
+<li><p>采用领域驱动设计思想对原有业务分析，领域事件</p>
+<p>领域模型主要解决增删改</p>
+</li>
+<li><p>对于新业务需求需要站在整体全局视角思考</p>
+<p>形成战略规划（子系统、限界上下文、功能模块）</p>
+<p>先做用例模型设计，再做领域模型设计</p>
+</li>
+</ul>
+<p><strong>限界上下分怎么划分？</strong></p>
+<ul>
+<li>业务相关性，相关性强的放一起</li>
+<li>业务的复杂性或者规模，单个限界上下文应该相对简单，小而专，符合单一职责原则</li>
+<li>支撑域，公用的信息</li>
+</ul>
+<h3 id="用例模型"><a href="#用例模型" class="headerlink" title="用例模型"></a>用例模型</h3><p>第0层：子系统划分</p>
+<p>第1层：针对子系统细化，描述每个用例<br>             操作用例关注的是事件流，如果单个事件流很复杂可以再拆分成多个子用例<br>             查询报表用例、图表展示用例关注的是数据内容</p>
+<p>第2层：界面原型</p>
+<h3 id="领域模型"><a href="#领域模型" class="headerlink" title="领域模型"></a>领域模型</h3><ul>
+<li><p>在需求讨论中建模</p>
+</li>
+<li><p>原文分析法    分析用例描述中的名词（对象、属性），动词（后端动作）</p>
+<p>若是复杂概念名词则对象，若简单的一个则为属性</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/架构/" rel="tag"># 架构</a>
+            
+              <a href="/tags/Draft/" rel="tag"># Draft</a>
+            
+              <a href="/tags/DDD/" rel="tag"># DDD</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2021/11/18/DDD实战：通用领域模型落地/" rel="next" title="DDD实战：通用领域模型落地">
+                  <i class="fa fa-chevron-left"></i> DDD实战：通用领域模型落地
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2021/11/25/Elasticsearch安装/" rel="prev" title="Elasticsearch安装">
+                  Elasticsearch安装 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#领域模型设计"><span class="nav-number">1.</span> <span class="nav-text">领域模型设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库设计"><span class="nav-number">1.1.</span> <span class="nav-text">数据库设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序设计"><span class="nav-number">1.2.</span> <span class="nav-text">程序设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#贫血模型设计"><span class="nav-number">1.2.1.</span> <span class="nav-text">贫血模型设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#充血模型设计"><span class="nav-number">1.2.2.</span> <span class="nav-text">充血模型设计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#领域驱动设计的分层架构"><span class="nav-number">1.3.</span> <span class="nav-text">领域驱动设计的分层架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#去中心化数据管理"><span class="nav-number">1.4.</span> <span class="nav-text">去中心化数据管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微信服务架构实现读写分离"><span class="nav-number">1.5.</span> <span class="nav-text">微信服务架构实现读写分离</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库纵向拆分"><span class="nav-number">1.5.1.</span> <span class="nav-text">数据库纵向拆分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨库关联查询解决方案"><span class="nav-number">1.5.2.</span> <span class="nav-text">跨库关联查询解决方案</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#领域驱动与微服务实践"><span class="nav-number">2.</span> <span class="nav-text">领域驱动与微服务实践</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要领域驱动"><span class="nav-number">2.1.</span> <span class="nav-text">为什么需要领域驱动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用例模型"><span class="nav-number">2.1.1.</span> <span class="nav-text">用例模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#领域模型"><span class="nav-number">2.1.2.</span> <span class="nav-text">领域模型</span></a></li></ol></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Klovis Zhang</p>
+  <div class="site-description" itemprop="description">Klovis' Blog</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <!-- 不蒜字统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Klovis Zhang</span>
+</div>
+
+<!-- 不蒜字统计
+<div>
+  <i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">
+    访问人数：<span id="busuanzi_value_site_uv"></span>
+  </span>&nbsp;|&nbsp;
+  
+  <i class="fa fa-eye"></i>
+  <span id="busuanzi_container_site_pv">
+    总访问量：<span id="busuanzi_value_site_pv"></span>
+  </span>&nbsp;|&nbsp;
+  
+  <i class="fa fa-pencil"></i>
+  <span class="post-count">博客全站共  字</span>
+ 
+</div>
+-->
+
+<!--
+  作者：Jaybo
+  链接：https://juejin.cn/post/6844903558089801742
+-->
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.0</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('/lib/Valine.min.klovis.js?v=1.4.14', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'mJePDFoat5esmxVx2jHKJqbf-MdYXbMMI',
+    appKey: 'mRKHVoD8xs5njRNTiDp30QJQ',
+    placeholder: 'just do it',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    requiredFields: ['nick','mail'],
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>
