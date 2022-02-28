@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="Klovis&#39; Blog">
 <meta property="og:description" content="Java语法基础要点">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-02-24T14:53:55.591Z">
+<meta property="og:updated_time" content="2022-02-24T14:54:25.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java语法基础">
 <meta name="twitter:description" content="Java语法基础要点">
@@ -266,7 +266,7 @@
                 
               
 
-              <time title="Created: 2022-02-24 22:10:25 / Modified: 22:53:55" itemprop="dateCreated datePublished" datetime="2022-02-24T22:10:25+08:00">2022-02-24</time>
+              <time title="Created: 2022-02-24 22:10:25 / Modified: 22:54:25" itemprop="dateCreated datePublished" datetime="2022-02-24T22:10:25+08:00">2022-02-24</time>
             </span>
           
             
@@ -324,7 +324,7 @@
 <a id="more"></a>
 
 <h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="重写equals方法进为什么要重写hashCode"><a href="#重写equals方法进为什么要重写hashCode" class="headerlink" title="重写equals方法进为什么要重写hashCode"></a>重写equals方法进为什么要重写hashCode</h2><ul>
-<li><p>在有些地方会使用到hashcode, 比如说HashMap中的元素，如果相同对象不能保证hashcode是一致的就会导致bug，比如说如果Key为引用对象时，虽然equals相等，但是可能插入的数据，用另一个equal相等的Key去get,,  会get不value</p>
+<li><p>在有些地方会使用到hashcode, 比如说HashMap中的元素，如果相同对象不能保证hashcode是一致的就会导致bug，比如说如果Key为引用对象时，虽然equals相等，但是可能插入的数据，用另一个equal相等的Key去get,  会get不value</p>
 </li>
 <li><p>由于我们在 HashMapKey 对象里没有定义 equals 方法，系统就不得不调用 Object 类的 equals 方法，同理由于 Object 的固有方法是根据两个对象的内存地址来判断，所以 k1 和 k2 一定不会相等</p>
 </li>
